@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sadia Afrin Rimi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .dark-mode {
+      background-color: #121212;
+      color: #f1f1f1;
+    }
+    .dark-mode .bg-white {
+      background-color: #333;
+    }
+    .dark-mode .bg-gray-100 {
+      background-color: #1a1a1a;
+    }
+    .dark-mode .text-gray-800 {
+      color: #f1f1f1;
+    }
+    .dark-mode .text-gray-600 {
+      color: #e0e0e0;
+    }
+    .dark-mode .text-yellow-500 {
+      color: #ffbb33;
+    }
+
+    /* Language toggle button styling */
+    .language-toggle {
+      position: absolute;
+      top: 4%;
+      left: 4%;
+      z-index: 1000;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .language-toggle button {
+      padding: 8px 16px;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 12px;
+      background-color: #4A90E2;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .language-toggle button:hover {
+      background-color: #357ABD;
+      transform: scale(1.1);
+    }
+
+    /* Ensure language change buttons are visible in dark mode */
+    .dark-mode .language-toggle button {
+      background-color: #3B3B3B;
+    }
+
+    .dark-mode .language-toggle button:hover {
+      background-color: #555555;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+  <!-- Dark Mode Button -->
+  <div class="absolute top-4 right-4">
+    <button id="darkModeBtn" class="bg-gray-800 text-white px-4 py-2 rounded-full hover:bg-gray-600 focus:outline-none transition">
+      🌙 Dark Mode
+    </button>
+  </div>
+
+  <!-- Language Toggle (visible in both light and dark mode) -->
+  <div class="language-toggle">
+    <button id="enBtn" class="text-gray-800 dark:text-white">English</button>
+    <button id="bnBtn" class="text-gray-800 dark:text-white">বাংলা</button>
+  </div>
+
+  <div class="bg-white shadow-xl rounded-2xl p-8 max-w-sm text-center dark:bg-gray-800 dark:text-white">
+
+    <!-- Profile Image -->
+    <img src="profile.jpg" alt="Profile" class="w-32 h-32 mx-auto rounded-full mb-4 shadow-md">
+    <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-200" id="profileName">সাদিয়া আফরিন রিমি</h1>
+    <p class="text-gray-600 mt-2 mb-6 dark:text-gray-400" id="profileTagline">ওয়েব ডেভেলপার | ডিজাইনার | প্রোগ্রামার</p>
+
+    <!-- Bio Section -->
+    <p id="bio" class="text-gray-600 dark:text-gray-400 mb-6">
+      আমি এক জন ফ্রিল্যান্সার। আমি SRS Digital Platform এ কাজ করি।স্টুডেন্ট / গৃহিণী/ চাকুরিজীবী যারা অনলাইন এ কাজ করতে চান যোগাযোগ করুন ।১.) ফটো এডিটিং ২.) ভিডিও এডিটিং ৩.) গ্রাফিক্স ডিজাইন ৪.) ডিজিটাল মার্কেটিং ৫.) সোশ্যাল মিডিয়া মার্কেটিং ৬.) ডাটা এন্ট্রি ৭.) {B 2 C}লিড জেনারেশন ৮.) স্পোকেন ইংলিশ ৯.) ক্যানভা এডিটিং  ১০.) মাইক্রোসফট ওয়ার্ড,মাইক্রোসফট পাওয়ার পয়েন্ট ,মাইক্রোসফট এক্সেল 🏮🏮🏮🏮🏮🏮🏮🏮🏮,তাই দেরি না করে এখনই ইনবক্স করুন।।
+    </p>
+
+    <!-- Social Links -->
+    <div class="flex justify-center gap-4">
+      <a href="https://wa.me/+8801730402534" target="_blank"
+         class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-6 h-6 inline-block mr-2"> WhatsApp
+      </a>
+      <a href="https://t.me/" target="_blank"
+         class="bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" class="w-6 h-6 inline-block mr-2"> Telegram
+      </a>
+    </div>
+
+    <div class="mt-4">
+      <a href="https://facebook.com/SinthiaRahmanSara.official" target="_blank"
+         class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" class="w-6 h-6 inline-block mr-2"> Facebook
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Dark Mode Toggle
+    const darkModeBtn = document.getElementById("darkModeBtn");
+    const body = document.body;
+
+    darkModeBtn.addEventListener("click", () => {
+      if (body.classList.contains("dark-mode")) {
+        body.classList.remove("dark-mode");
+        darkModeBtn.innerHTML = "🌙 Dark Mode"; // Change button text to light mode icon
+      } else {
+        body.classList.add("dark-mode");
+        darkModeBtn.innerHTML = "🌞 Light Mode"; // Change button text to light mode icon
+      }
+    });
+
+    // Language Toggle
+    const enBtn = document.getElementById("enBtn");
+    const bnBtn = document.getElementById("bnBtn");
+
+    const profileName = document.getElementById("profileName");
+    const profileTagline = document.getElementById("profileTagline");
+    const bio = document.getElementById("bio");
+
+    enBtn.addEventListener("click", () => {
+      profileName.innerText = "Sadia Afrin Rimi";
+      profileTagline.innerText = "Web Developer | Designer | Programmer";
+      bio.innerText = "I am a freelancer. I work at SRS Digital Platform. Students / housewives / employees who want to work online please contact.1.) Photo Editing 2.) Video Editing 3.) Graphics Design 4.) Digital Marketing 5.) Social Media Marketing 6.) Data Entry 7.) {B 2 C} Lead Generation 8.) Spoken English 9.) Canva Editing 10.) Microsoft Word, Microsoft PowerPoint, Microsoft Excel 🏮🏮🏮🏮🏮🏮🏮🏮🏮, so inbox me now without delay. ";
+    });
+
+    bnBtn.addEventListener("click", () => {
+      profileName.innerText = "সাদিয়া আফরিন রিমি";
+      profileTagline.innerText = "ওয়েব ডেভেলপার | ডিজাইনার | প্রোগ্রামার";
+      bio.innerText = "আমি এক জন ফ্রিল্যান্সার। আমি SRS Digital Platform এ কাজ করি।স্টুডেন্ট / গৃহিণী/ চাকুরিজীবী যারা অনলাইন এ কাজ করতে চান যোগাযোগ করুন ।১.) ফটো এডিটিং ২.) ভিডিও এডিটিং ৩.) গ্রাফিক্স ডিজাইন ৪.) ডিজিটাল মার্কেটিং ৫.) সোশ্যাল মিডিয়া মার্কেটিং ৬.) ডাটা এন্ট্রি ৭.) {B 2 C}লিড জেনারেশন ৮.) স্পোকেন ইংলিশ ৯.) ক্যানভা এডিটিং  ১০.) মাইক্রোসফট ওয়ার্ড,মাইক্রোসফট পাওয়ার পয়েন্ট ,মাইক্রোসফট এক্সেল 🏮🏮🏮🏮🏮🏮🏮🏮🏮,তাই দেরি না করে এখনই ইনবক্স করুন।।";
+    });
+  </script>
+<br>
+ 
+</body>
+</html>
